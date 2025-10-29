@@ -2,6 +2,7 @@
   "itemGroup.qcurios": "Example Mod Tab",
   "block.qcurios.example_block": "Example Block",
   "item.qcurios.example_item": "Example Item",
+  "item.qcurios.ring_item": "Ring Test Item",
 
   "qcurios.configuration.title": "QCurios Configs",
   "qcurios.configuration.section.qcurios.common.toml": "QCurios Configs",
