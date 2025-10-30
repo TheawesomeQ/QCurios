@@ -25,7 +25,7 @@ public class QCuriosClient {
     @SubscribeEvent
     static void onClientSetup(FMLClientSetupEvent event) {
         // Some client setup code
-        QCurios.LOGGER.info("HELLO FROM CLIENT SETUP");
+        QCurios.LOGGER.info("CommonSetup - Client - QCurios Loaded");
         QCurios.LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
     }
 }

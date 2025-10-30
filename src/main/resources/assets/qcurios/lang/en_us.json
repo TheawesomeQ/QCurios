@@ -1,14 +1,8 @@
 {
-  "itemGroup.qcurios": "Example Mod Tab",
-  "block.qcurios.example_block": "Example Block",
-  "item.qcurios.example_item": "Example Item",
-  "item.qcurios.ring_item": "Ring Test Item",
+  "itemGroup.qcurios": "QCurios Mod Tab",
+  "item.qcurios.ring_item": "Basic Ring",
 
   "qcurios.configuration.title": "QCurios Configs",
   "qcurios.configuration.section.qcurios.common.toml": "QCurios Configs",
-  "qcurios.configuration.section.qcurios.common.toml.title": "QCurios Configs",
-  "qcurios.configuration.items": "Item List",
-  "qcurios.configuration.logDirtBlock": "Log Dirt Block",
-  "qcurios.configuration.magicNumberIntroduction": "Magic Number Text",
-  "qcurios.configuration.magicNumber": "Magic Number"
+  "qcurios.configuration.section.qcurios.common.toml.title": "QCurios Configs"
 }

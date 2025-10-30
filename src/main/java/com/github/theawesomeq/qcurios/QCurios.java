@@ -2,6 +2,7 @@ package com.github.theawesomeq.qcurios;
 
 import org.slf4j.Logger;
 
+import com.github.theawesomeq.qcurios.init.CreativeTabsInit;
 import com.github.theawesomeq.qcurios.init.ItemsInit;
 import com.mojang.logging.LogUtils;
 
@@ -51,7 +52,7 @@ public class QCurios {
         // Compared to example, move all specific implementation from above in the main class to dedicated
         //  registry classes for items and blocks
         ItemsInit.register(modEventBus);
-
+        CreativeTabsInit.register(modEventBus);
         // This common setup
         modEventBus.addListener(this::commonSetup);
 
