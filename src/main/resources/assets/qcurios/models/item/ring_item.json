@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "qcurios:items/ring_item"
+    "layer0": "qcurios:item/ring_item"
   },
 
   "model": {
     "type": "minecraft:model",
-    "model": "qcurios:items/ring_item"
+    "model": "qcurios:item/ring_item"
   },
   "display": {
     "thirdperson": {
