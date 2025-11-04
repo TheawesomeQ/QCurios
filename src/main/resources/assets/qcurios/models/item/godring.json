@@ -1,7 +1,7 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "qbaubles:items/godring"
+        "layer0": "qcurios:item/godring"
      },
      
     "display": {

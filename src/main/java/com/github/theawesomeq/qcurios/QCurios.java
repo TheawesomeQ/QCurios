@@ -1,14 +1,14 @@
 package com.github.theawesomeq.qcurios;
 
+// Logging
 import org.slf4j.Logger;
-
-import com.github.theawesomeq.qcurios.init.CreativeTabsInit;
-import com.github.theawesomeq.qcurios.init.ItemsInit;
 import com.mojang.logging.LogUtils;
 
-import net.minecraft.core.registries.Registries;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CreativeModeTabs;
+// QCurios Init
+import com.github.theawesomeq.qcurios.init.CreativeTabsInit;
+import com.github.theawesomeq.qcurios.init.ItemsInit;
+
+
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
@@ -16,9 +16,7 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
-import net.neoforged.neoforge.registries.DeferredRegister;
 
-import com.github.theawesomeq.qcurios.init.ItemsInit;
 
 /*
 *  Clearly this is our main mod file. We'll run our deferred registries on the main class first.

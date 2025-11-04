@@ -1,6 +1,7 @@
 package com.github.theawesomeq.qcurios.init;
 
 import com.github.theawesomeq.qcurios.QCurios;
+import com.github.theawesomeq.qcurios.items.GodRing;
 import com.github.theawesomeq.qcurios.items.RingItem;
 
 import net.minecraft.world.item.CreativeModeTabs;
@@ -33,6 +34,12 @@ public class ItemsInit {
         // Lambda function says instantiate a new Item with a new Item.properties
         () -> new RingItem() // Moved properties to item class file
     );
+
+    public static final DeferredItem<Item> GODRING = ITEMS.register(
+        "god_ring",
+        () -> new GodRing()
+    );
+    
 
 
     public static void register(IEventBus modEventBus){
