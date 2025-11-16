@@ -2,9 +2,7 @@ package com.github.theawesomeq.qcurios.items;
 
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.Level;
 
-//import net.minecraft.world.entity;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.common.NeoForge;
@@ -23,31 +21,17 @@ public class GodRing extends Item implements ICurioItem {
 
 	public GodRing() {
 		super(new Item.Properties().stacksTo(1).durability(0));
-		LOGGER.info("QCurios Test - God Ring Registering, adding checkInvulnerable");
+		//LOGGER.info("QCurios Test - God Ring Registering, adding checkInvulnerable");
 		NeoForge.EVENT_BUS.register(GodRingEventHandler.class);
 	}
 
-	// Implementation plan:
-	// If it is equipped, the is invulnerable event will return true.
-	// 	
-
 	public void onEquip(SlotContext slotContext, ItemStack itemStack) {
-		//slotContext.entity().setEntityInvulnerable(true);
 	}
 	
 
 	public void onUnequip(SlotContext slotContext, ItemStack itemStack) {
-
 	}
-	// public void onUnequipped(ItemStack itemstack, EntityLivingBase player) {
-	// 	player.setEntityInvulnerable(false);
-	// }
-	
 
-	// setEntityInvulnerable is deprecated. Instead, use invulnerable check event.
-	// https://deepwiki.com/search/what-do-i-do-instead-of-player_6e54946e-2da8-4f7e-bf9c-a127a92a1d9b?mode=fast
-	// https://github.com/neoforged/Documentation/blob/ac9ae26e/docs/entities/livingentity.md
-	// Some info about the change: https://github.com/neoforged/NeoForge/pull/792
 }
 
 class GodRingEventHandler {
