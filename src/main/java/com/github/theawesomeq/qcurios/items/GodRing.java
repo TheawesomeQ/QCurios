@@ -12,6 +12,9 @@ import net.neoforged.neoforge.event.entity.EntityInvulnerabilityCheckEvent;
 import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.type.capability.ICurioItem;
 
+import top.theillusivec4.curios.api.CuriosApi;
+import com.github.theawesomeq.qcurios.init.ItemsInit;
+
 import com.mojang.logging.LogUtils;
 import org.slf4j.Logger;
 
@@ -55,11 +58,18 @@ class GodRingEventHandler {
 	public static void checkInvulnerable(EntityInvulnerabilityCheckEvent invulnerabilityCheckEvent){
 		//LOGGER.info("QCurios Test - Check Invulnerable Event Fired for :" + invulnerabilityCheckEvent.toString());
 		//LOGGER.info("QCurios Event Entity: " + invulnerabilityCheckEvent.getEntity().toString());
+		
+		// Server side only, players only
 		if(!(invulnerabilityCheckEvent.getEntity().level().isClientSide()) && invulnerabilityCheckEvent.getEntity() instanceof Player player){
-			LOGGER.info("QCurios Test - Check Invulnerable Event Serverside for Player");
-			
-			//Something like this but for curios.
-			//player.getItemBySlot(null);
+			//LOGGER.info("QCurios Test - Check Invulnerable Event Serverside for Player");
+
+			// Ensure valid inventory to check	
+			CuriosApi.getCuriosInventory(player).ifPresent(curiosInventory -> {
+				if(curiosInventory.isEquipped(ItemsInit.GODRING.get())){
+					// This sets it only for the current damage event
+					invulnerabilityCheckEvent.setInvulnerable(true);
+				}
+			});
 		}
 	}
 }
