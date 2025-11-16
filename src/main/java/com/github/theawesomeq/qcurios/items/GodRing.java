@@ -44,6 +44,7 @@ public class GodRing extends Item implements ICurioItem {
 	// setEntityInvulnerable is deprecated. Instead, use invulnerable check event.
 	// https://deepwiki.com/search/what-do-i-do-instead-of-player_6e54946e-2da8-4f7e-bf9c-a127a92a1d9b?mode=fast
 	// https://github.com/neoforged/Documentation/blob/ac9ae26e/docs/entities/livingentity.md
+	// Some info about the change: https://github.com/neoforged/NeoForge/pull/792
 }
 
 class GodRingEventHandler {

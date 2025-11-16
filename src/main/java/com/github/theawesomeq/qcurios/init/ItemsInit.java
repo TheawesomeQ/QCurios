@@ -36,7 +36,7 @@ public class ItemsInit {
     );
 
     public static final DeferredItem<Item> GODRING = ITEMS.register(
-        "god_ring",
+        "godring",
         () -> new GodRing()
     );
     
