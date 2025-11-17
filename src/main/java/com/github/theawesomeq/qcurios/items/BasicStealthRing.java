@@ -27,23 +27,10 @@ public class BasicStealthRing extends Item implements ICurioItem {
 		NeoForge.EVENT_BUS.register(BSR_EVENT_HANDLER);
 	}
 }
+// Run all our checks, on the timer of tick interval from config,
+// and then the invisibility mobEffect. Basic ring includes particle effects.
+// Future advanced stealth ring might use a mobEffect with no particles.
 
-/*
- * Plan:
- * We could do potion effects like before. That was kind of janky.
- * Better would be to do an event on crouch to set it to stealth,
- * another event on uncrouch. And have the render state or shader effect applied
- * somehow depending on the crouch state.
- * 
- * Server side, we need to apply the potion effect or mobeffect.
- * Client side, we either let vanilla potion effects serve us or create a better
- * invisibility effect.
- */
-
-/*
- * Minecraft now uses a "Pose" system. We are interested in Pose.CROUCHING
- * There doesn't seem to be a pose change event
- */
 class BasicStealthRingEventHandler {
 	public static final Logger LOGGER = LogUtils.getLogger();
 
@@ -51,7 +38,7 @@ class BasicStealthRingEventHandler {
 
 	@SubscribeEvent
 	public void onPlayerTick(PlayerTickEvent.Pre thisevent) {
-		// LOGGER.info("Tick number: " + tickCount); // This shows we run many plaes if
+		// LOGGER.info("Tick number: " + tickCount); // This shows we run many places if
 		// we don't do our check
 		// Server side only, players only
 		if (!thisevent.getEntity().level().isClientSide() && thisevent.getEntity() instanceof Player player) {
