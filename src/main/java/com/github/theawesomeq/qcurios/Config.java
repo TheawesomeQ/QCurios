@@ -20,4 +20,9 @@ import net.neoforged.neoforge.common.ModConfigSpec;
 public class Config {
     private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
 
+        public static final ModConfigSpec.IntValue EFFECT_TICK_INTERVAL = BUILDER
+            .comment("Tick interval for processing passive effects. I.E. Crouching triggers magic in at most X ticks.")
+            .defineInRange("effectTickInterval", 40, 0, Integer.MAX_VALUE);
+
+            static final ModConfigSpec SPEC = BUILDER.build();
 }

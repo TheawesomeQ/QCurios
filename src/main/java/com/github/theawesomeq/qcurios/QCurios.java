@@ -12,6 +12,7 @@ import com.github.theawesomeq.qcurios.init.ItemsInit;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
@@ -51,15 +52,16 @@ public class QCurios {
         //  registry classes for items and blocks
         ItemsInit.register(modEventBus);
         CreativeTabsInit.register(modEventBus);
-        // This common setup
+
         modEventBus.addListener(this::commonSetup);
 
-
+        modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
    }
 
 
     private void commonSetup(FMLCommonSetupEvent event) {
         LOGGER.info("CommonSetup - QCurios Mod Present");
+        LOGGER.info("Read config test, Tick interval: " + Config.EFFECT_TICK_INTERVAL.get());
     }
 
 }
