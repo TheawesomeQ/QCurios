@@ -45,7 +45,7 @@ class GodRingEventHandler {
 		
 		// Server side only, players only
 		if(!(invulnerabilityCheckEvent.getEntity().level().isClientSide()) && invulnerabilityCheckEvent.getEntity() instanceof Player player){
-			//LOGGER.info("QCurios Test - Check Invulnerable Event Serverside for Player");
+			LOGGER.info("QCurios Test - Check Invulnerable Event Serverside for Player");
 
 			// Ensure valid inventory to check	
 			CuriosApi.getCuriosInventory(player).ifPresent(curiosInventory -> {

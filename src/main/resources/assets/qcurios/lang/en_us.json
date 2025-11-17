@@ -1,6 +1,8 @@
 {
   "itemGroup.qcurios": "QCurios Mod Tab",
   "item.qcurios.ring_item": "Basic Ring",
+  "item.qcurios.godring": "God Ring",
+  "item.qcurios.basic_stealth_ring": "Stealth Ring",
 
   "qcurios.configuration.title": "QCurios Configs",
   "qcurios.configuration.section.qcurios.common.toml": "QCurios Configs",

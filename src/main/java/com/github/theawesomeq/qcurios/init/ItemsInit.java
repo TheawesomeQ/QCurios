@@ -3,6 +3,7 @@ package com.github.theawesomeq.qcurios.init;
 import com.github.theawesomeq.qcurios.QCurios;
 import com.github.theawesomeq.qcurios.items.GodRing;
 import com.github.theawesomeq.qcurios.items.RingItem;
+import com.github.theawesomeq.qcurios.items.BasicStealthRing;
 
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
@@ -22,7 +23,6 @@ import net.neoforged.neoforge.registries.DeferredRegister;
  * 
  */
 
-
 public class ItemsInit {
     // Set up neoforge registry helper, using our own MODID as the namespace for the registry
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(QCurios.MODID);
@@ -38,6 +38,11 @@ public class ItemsInit {
     public static final DeferredItem<Item> GODRING = ITEMS.register(
         "godring",
         () -> new GodRing()
+    );
+
+    public static final DeferredItem<Item> BASIC_STEALTH_RING = ITEMS.register(
+        "basic_stealth_ring",
+        () -> new BasicStealthRing()
     );
     
 
