@@ -40,18 +40,11 @@ public class BasicStealthRing extends Item implements ICurioItem {
 				// which would mean we change this order of checking to check curio equip first
 				// because other rings won't have the same trigger conditions.
 				if (player.isCrouching()) {
-					// This skips advised use of ifPresent method because I couldn't get
-					// the player variable in scope for the lambda function.
-					// It should be fine because we've filtered for only players and
-					// players always have ring slots.
-					ICuriosItemHandler curiosInventory = CuriosApi.getCuriosInventory(player).get();
-					if (curiosInventory != null) {
-						if (curiosInventory.isEquipped(ModItems.BASIC_STEALTH_RING.get())) {
-							//LOGGER.info("Trigger Stealth Ring Effect.");
-							if(MobEffects.INVISIBILITY != null){
-							player.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, Config.EFFECT_TICK_INTERVAL.get()+5)); // Players flash briefly without tick effect buffer
-							}
-						}
+					// At this point we should have a player with the ring equipped, no need to check
+					// for null inventory or whether a stealth ring is equipped.
+					//LOGGER.info("Trigger Stealth Ring Effect.");
+					if(MobEffects.INVISIBILITY != null){
+					player.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, Config.EFFECT_TICK_INTERVAL.get()+5)); // Players flash briefly without tick effect buffer
 					}
 				}
 			} else {
