@@ -24,10 +24,10 @@ public class CreativeTabsInit {
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> QCURIOS_TAB = CREATIVE_TABS.register("qcurios_tab", () -> CreativeModeTab.builder()
         .title(Component.translatable("itemGroup.qcurios"))
         .withTabsBefore(CreativeModeTabs.COMBAT)
-        .icon(() -> ItemsInit.RINGITEM.get().getDefaultInstance())
+        .icon(() -> ModItems.RINGITEM.get().getDefaultInstance())
         .displayItems((parameters, output) -> {
             LOGGER.info("QCurios: RingItem Display Item Set for creative tab");
-            output.accept(ItemsInit.RINGITEM.get());
+            output.accept(ModItems.RINGITEM.get());
         })
         .build());
 

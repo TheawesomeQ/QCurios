@@ -9,39 +9,30 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
 
 import com.github.theawesomeq.qcurios.Config;
-import com.github.theawesomeq.qcurios.init.ItemsInit;
-import net.neoforged.bus.api.SubscribeEvent;
+import com.github.theawesomeq.qcurios.init.ModItems;
 import net.minecraft.world.item.Item;
-import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.event.tick.PlayerTickEvent;
+import net.minecraft.world.item.ItemStack;
 import top.theillusivec4.curios.api.CuriosApi;
+import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.type.capability.ICurioItem;
 import top.theillusivec4.curios.api.type.capability.ICuriosItemHandler;
 
 public class BasicStealthRing extends Item implements ICurioItem {
 	public static final Logger LOGGER = LogUtils.getLogger();
-	public BasicStealthRingEventHandler BSR_EVENT_HANDLER = new BasicStealthRingEventHandler();
-
 	public BasicStealthRing() {
 		super(new Item.Properties().stacksTo(1).durability(0));
-		NeoForge.EVENT_BUS.register(BSR_EVENT_HANDLER);
 	}
-}
-// Run all our checks, on the timer of tick interval from config,
-// and then the invisibility mobEffect. Basic ring includes particle effects.
-// Future advanced stealth ring might use a mobEffect with no particles.
 
-class BasicStealthRingEventHandler {
-	public static final Logger LOGGER = LogUtils.getLogger();
+
+	// Run all our checks, on the timer of tick interval from config,
+	// and then the invisibility mobEffect. Basic ring includes particle effects.
+	// Future advanced stealth ring might use a mobEffect with no particles.
 
 	private int tickCount = 0;
-
-	@SubscribeEvent
-	public void onPlayerTick(PlayerTickEvent.Pre thisevent) {
-		// LOGGER.info("Tick number: " + tickCount); // This shows we run many places if
-		// we don't do our check
+	@Override
+	public void curioTick(SlotContext slotContext, ItemStack stack){
 		// Server side only, players only
-		if (!thisevent.getEntity().level().isClientSide() && thisevent.getEntity() instanceof Player player) {
+		if (!slotContext.entity().level().isClientSide() && slotContext.entity() instanceof Player player) {
 			// LOGGER.info("Processing player tick on server");
 			if (tickCount >= Config.EFFECT_TICK_INTERVAL.get()) {
 				tickCount = 0;
@@ -55,9 +46,11 @@ class BasicStealthRingEventHandler {
 					// players always have ring slots.
 					ICuriosItemHandler curiosInventory = CuriosApi.getCuriosInventory(player).get();
 					if (curiosInventory != null) {
-						if (curiosInventory.isEquipped(ItemsInit.BASIC_STEALTH_RING.get())) {
+						if (curiosInventory.isEquipped(ModItems.BASIC_STEALTH_RING.get())) {
 							//LOGGER.info("Trigger Stealth Ring Effect.");
+							if(MobEffects.INVISIBILITY != null){
 							player.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, Config.EFFECT_TICK_INTERVAL.get()+5)); // Players flash briefly without tick effect buffer
+							}
 						}
 					}
 				}
@@ -66,4 +59,9 @@ class BasicStealthRingEventHandler {
 			}
 		}
 	}
-}
+
+	}
+
+
+
+

@@ -11,7 +11,7 @@ import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.type.capability.ICurioItem;
 
 import top.theillusivec4.curios.api.CuriosApi;
-import com.github.theawesomeq.qcurios.init.ItemsInit;
+import com.github.theawesomeq.qcurios.init.ModItems;
 
 import com.mojang.logging.LogUtils;
 import org.slf4j.Logger;
@@ -49,7 +49,7 @@ class GodRingEventHandler {
 
 			// Ensure valid inventory to check	
 			CuriosApi.getCuriosInventory(player).ifPresent(curiosInventory -> {
-				if(curiosInventory.isEquipped(ItemsInit.GODRING.get())){
+				if(curiosInventory.isEquipped(ModItems.GODRING.get())){
 					// This sets it only for the current damage event
 					invulnerabilityCheckEvent.setInvulnerable(true);
 				}

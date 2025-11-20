@@ -6,8 +6,9 @@ import com.mojang.logging.LogUtils;
 
 // QCurios Init
 import com.github.theawesomeq.qcurios.init.CreativeTabsInit;
-import com.github.theawesomeq.qcurios.init.ItemsInit;
-
+import com.github.theawesomeq.qcurios.init.ModItems;
+import com.github.theawesomeq.qcurios.items.BasicStealthRing;
+import com.github.theawesomeq.qcurios.items.RingItem;
 
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -17,6 +18,7 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
+import top.theillusivec4.curios.api.CuriosApi;
 
 
 /*
@@ -50,7 +52,7 @@ public class QCurios {
     public QCurios(IEventBus modEventBus, ModContainer modContainer) {
         // Compared to example, move all specific implementation from above in the main class to dedicated
         //  registry classes for items and blocks
-        ItemsInit.register(modEventBus);
+        ModItems.register(modEventBus);
         CreativeTabsInit.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);

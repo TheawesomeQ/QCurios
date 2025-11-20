@@ -12,6 +12,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import top.theillusivec4.curios.api.CuriosApi;
 
 /*
  * Overall structure of this:
@@ -23,7 +24,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
  * 
  */
 
-public class ItemsInit {
+public class ModItems {
     // Set up neoforge registry helper, using our own MODID as the namespace for the registry
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(QCurios.MODID);
 
@@ -49,5 +50,8 @@ public class ItemsInit {
 
     public static void register(IEventBus modEventBus){
         ITEMS.register(modEventBus);
+        //CuriosApi.registerCurio(ItemsInit.RINGITEM.get(), new RingItem());
+
+        
     }
 }
